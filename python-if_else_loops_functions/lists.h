@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+cat > lists.h << 'EOF'
+>>>>>>> 7e817e0d7c99364e4ec66f38c0a58b902aa5789d
 #ifndef LISTS_H
 #define LISTS_H
 
@@ -13,3 +17,7 @@ void free_listint(listint_t *head);
 listint_t *insert_node(listint_t **head, int number);
 
 #endif
+<<<<<<< HEAD
+=======
+EOF
+>>>>>>> 7e817e0d7c99364e4ec66f38c0a58b902aa5789d
