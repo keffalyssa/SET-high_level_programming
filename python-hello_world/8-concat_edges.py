@@ -1,5 +1,5 @@
 #!/usr/bin/python3
 str = ("Python is an interpreted, interactive, "
-      "object-oriented programming language")
-str = str[39:66] + str[6:7] + str[32:38] + str[0:6]
+       "object-oriented programming language")
+str = str[39:66] + str[31:37] + str[0:6]
 print(str)
