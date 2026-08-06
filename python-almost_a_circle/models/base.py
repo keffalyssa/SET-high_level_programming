@@ -5,38 +5,33 @@
 class Base:
     """Represent the base model.
 
-    Represents the base for all other classes in the project.
-
     Attributes:
-        __nb_objects (int): The number of instantiated Bases.
+        __nb_instances (int): The number of instantiated Bases.
+        id (int): A unique identifier.
     """
 
-    __nb_objects = 0
+    __nb_instances = 0
 
     def __init__(self, id=None):
-        """Initialize a new Base.
-
-        Args:
-            id (int): The identity of the new Base.
-        """
+        """Initialize a new Base."""
         if id is not None:
             self.id = id
         else:
-            Base.__nb_objects += 1
-            self.id = Base.__nb_objects
+            Base.__nb_instances += 1
+            self.id = Base.__nb_instances
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """Returns the JSON string representation of list_dictionaries."""
-        if list_dictionaries is None or len(list_dictionaries) == 0:
-            return "[]"
+        """Return the JSON string representation of list_dictionaries."""
         import json
+        if list_dictionaries is None or list_dictionaries == []:
+            return "[]"
         return json.dumps(list_dictionaries)
 
     @staticmethod
     def from_json_string(json_string):
-        """Returns the list of the JSON string representation json_string."""
+        """Return the list of the JSON string representation json_string."""
+        import json
         if json_string is None or json_string == "":
             return []
-        import json
         return json.loads(json_string)
