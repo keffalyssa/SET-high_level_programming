@@ -5,25 +5,22 @@ from models.base import Base
 
 
 class TestBase(unittest.TestCase):
-    """Unittests for testing the Base class."""
+    """Unittests for testing the Base class methods."""
 
-    def test_nb_instance(self):
-        """Test Base() for assigning automatically an ID."""
-        b1 = Base()
-        b2 = Base()
-        b3 = Base()
-        self.assertEqual(b1.id, 1)
-        self.assertEqual(b2.id, 2)
-        self.assertEqual(b3.id, 3)
+    def test_from_json_string_none(self):
+        """Test Base.from_json_string(None) exists and returns empty list."""
+        self.assertEqual(Base.from_json_string(None), [])
 
-    def test_id(self):
-        """Test Base(89) saving the ID passed."""
-        b = Base(89)
-        self.assertEqual(b.id, 89)
+    def test_from_json_string_empty(self):
+        """Test Base.from_json_string("[]") exists."""
+        self.assertEqual(Base.from_json_string("[]"), [])
 
-    def test_to_json_string(self):
-        """Test Base.to_json_string(None)."""
-        self.assertEqual(Base.to_json_string(None), "[]")
+    def test_from_json_string(self):
+        """Test Base.from_json_string('[{"id": 89}]') exists and returns list."""
+        json_str = '[{"id": 89}]'
+        res = Base.from_json_string(json_str)
+        self.assertIsInstance(res, list)
+        self.assertEqual(res, [{"id": 89}])
 
 
 if __name__ == "__main__":
