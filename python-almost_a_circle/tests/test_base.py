@@ -11,8 +11,19 @@ class TestBase(unittest.TestCase):
         """Test Base() for assigning automatically an ID."""
         b1 = Base()
         b2 = Base()
+        b3 = Base()
         self.assertEqual(b1.id, 1)
         self.assertEqual(b2.id, 2)
+        self.assertEqual(b3.id, 3)
+
+    def test_id(self):
+        """Test Base(89) saving the ID passed."""
+        b = Base(89)
+        self.assertEqual(b.id, 89)
+
+    def test_to_json_string(self):
+        """Test Base.to_json_string(None)."""
+        self.assertEqual(Base.to_json_string(None), "[]")
 
 
 if __name__ == "__main__":
