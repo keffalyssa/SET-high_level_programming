@@ -23,6 +23,11 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle(1, 2, 3, 4)
         self.assertEqual(r.y, 4)
 
+    def test_rectangle_five_args(self):
+        """Test Rectangle(1, 2, 3, 4, 5) exists."""
+        r = Rectangle(1, 2, 3, 4, 5)
+        self.assertEqual(r.id, 5)
+
     def test_type_error_width(self):
         """Test Rectangle("1", 2) raises TypeError."""
         with self.assertRaises(TypeError):
