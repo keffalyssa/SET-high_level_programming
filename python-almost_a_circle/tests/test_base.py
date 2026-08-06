@@ -7,7 +7,7 @@ from models.base import Base
 class TestBase(unittest.TestCase):
     """Unittests for testing the Base class."""
 
-    def test_id_auto(self):
+    def test_Base_id(self):
         """Test Base() for assigning automatically an ID."""
         b1 = Base()
         b2 = Base()
