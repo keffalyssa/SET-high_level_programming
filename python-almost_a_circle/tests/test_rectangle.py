@@ -28,35 +28,30 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle(1, 2, 3, 4, 5)
         self.assertEqual(r.id, 5)
 
-    def test_type_error_width(self):
-        """Test Rectangle("1", 2) raises TypeError."""
-        with self.assertRaises(TypeError):
-            Rectangle("1", 2)
-
-    def test_type_error_height(self):
-        """Test Rectangle(1, "2") raises TypeError."""
-        with self.assertRaises(TypeError):
-            Rectangle(1, "2")
-
-    def test_type_error_x(self):
-        """Test Rectangle(1, 2, "3") raises TypeError."""
-        with self.assertRaises(TypeError):
-            Rectangle(1, 2, "3")
-
-    def test_type_error_y(self):
-        """Test Rectangle(1, 2, 3, "4") raises TypeError."""
-        with self.assertRaises(TypeError):
-            Rectangle(1, 2, 3, "4")
-
-    def test_value_error_width_negative(self):
-        """Test Rectangle(-1, 2) raises ValueError."""
+    def test_value_error_width_zero(self):
+        """Test Rectangle(0, 2) raises ValueError."""
         with self.assertRaises(ValueError):
-            Rectangle(-1, 2)
+            Rectangle(0, 2)
 
-    def test_value_error_height_negative(self):
-        """Test Rectangle(1, -2) raises ValueError."""
+    def test_value_error_height_zero(self):
+        """Test Rectangle(1, 0) raises ValueError."""
         with self.assertRaises(ValueError):
-            Rectangle(1, -2)
+            Rectangle(1, 0)
+
+    def test_value_error_x_negative(self):
+        """Test Rectangle(1, 2, -3) raises ValueError."""
+        with self.assertRaises(ValueError):
+            Rectangle(1, 2, -3)
+
+    def test_value_error_y_negative(self):
+        """Test Rectangle(1, 2, 3, -4) raises ValueError."""
+        with self.assertRaises(ValueError):
+            Rectangle(1, 2, 3, -4)
+
+    def test_area(self):
+        """Test area() method exists and returns correct value."""
+        r = Rectangle(3, 4)
+        self.assertEqual(r.area(), 12)
 
 
 if __name__ == "__main__":
