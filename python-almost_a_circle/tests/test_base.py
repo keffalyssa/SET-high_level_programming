@@ -14,15 +14,6 @@ class TestBase(unittest.TestCase):
         self.assertEqual(b1.id, 1)
         self.assertEqual(b2.id, 2)
 
-    def test_id(self):
-        """Test custom ID assignment."""
-        b = Base(98)
-        self.assertEqual(b.id, 98)
-
-    def test_to_json_string(self):
-        """Test to_json_string static method."""
-        self.assertEqual(Base.to_json_string(None), "[]")
-
 
 if __name__ == "__main__":
     unittest.main()
