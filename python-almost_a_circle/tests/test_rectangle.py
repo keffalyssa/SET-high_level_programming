@@ -23,6 +23,16 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle(1, 2, 3, 4)
         self.assertEqual(r.y, 4)
 
+    def test_type_error_width(self):
+        """Test Rectangle("1", 2) raises TypeError."""
+        with self.assertRaises(TypeError):
+            Rectangle("1", 2)
+
+    def test_type_error_height(self):
+        """Test Rectangle(1, "2") raises TypeError."""
+        with self.assertRaises(TypeError):
+            Rectangle(1, "2")
+
 
 if __name__ == "__main__":
     unittest.main()
