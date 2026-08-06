@@ -33,6 +33,26 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             Rectangle(1, "2")
 
+    def test_type_error_x(self):
+        """Test Rectangle(1, 2, "3") raises TypeError."""
+        with self.assertRaises(TypeError):
+            Rectangle(1, 2, "3")
+
+    def test_type_error_y(self):
+        """Test Rectangle(1, 2, 3, "4") raises TypeError."""
+        with self.assertRaises(TypeError):
+            Rectangle(1, 2, 3, "4")
+
+    def test_value_error_width_negative(self):
+        """Test Rectangle(-1, 2) raises ValueError."""
+        with self.assertRaises(ValueError):
+            Rectangle(-1, 2)
+
+    def test_value_error_height_negative(self):
+        """Test Rectangle(1, -2) raises ValueError."""
+        with self.assertRaises(ValueError):
+            Rectangle(1, -2)
+
 
 if __name__ == "__main__":
     unittest.main()
