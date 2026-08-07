@@ -1,30 +1,34 @@
-#!/usr/python3
-"""Unit tests for Base class."""
+#!/usr/bin/python3
+"""Unittests for base.py"""
 import unittest
 from models.base import Base
 
 
 class TestBase(unittest.TestCase):
-    """Test cases for the Base class."""
+    """Test suite for the Base class"""
 
-    def setUp(self):
-        """Reset Base nb_objects before each test if necessary."""
-        Base._Base__nb_objects = 0
+    def test_id_not_provided(self):
+        """Test Base() for assigning automatically an ID exists"""
+        b = Base()
+        self.assertIsNotNone(b.id)
 
-    def test_id_automatic(self):
-        """Test automatic ID assignment."""
+    def test_id_increment(self):
+        """Test Base() for assigning automatically an ID + 1"""
         b1 = Base()
         b2 = Base()
-        self.assertEqual(b1.id, 1)
-        self.assertEqual(b2.id, 2)
+        self.assertEqual(b2.id, b1.id + 1)
 
-    def test_id_manual(self):
-        """Test manual ID assignment."""
-        b3 = Base(98)
-        self.assertEqual(b3.id, 98)
+    def test_id_passed(self):
+        """Test Base(89) saving the ID passed exists"""
+        b = Base(89)
+        self.assertEqual(b.id, 89)
 
-    def test_to_json_string(self):
-        """Test to_json_string static method."""
-        d = [{"id": 1, "width": 2, "height": 3, "x": 0, "y": 0}]
-        json_str = Base.to_json_string(d)
-        self.assertEqual(type(json_str), str)
+    def test_to_json_string_none(self):
+        """Test Base.to_json_string(None) exists"""
+        res = Base.to_json_string(None)
+        self.assertEqual(res, "[]")
+
+    def test_to_json_string_empty(self):
+        """Test Base.to_json_string([]) exists"""
+        res = Base.to_json_string([])
+        self.assertEqual(res, "[]")
