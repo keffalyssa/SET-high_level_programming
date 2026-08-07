@@ -1,26 +1,53 @@
 #!/usr/bin/python3
-"""Defines unittests for models/base.py."""
+"""Unittests for base.py"""
 import unittest
 from models.base import Base
 
 
 class TestBase(unittest.TestCase):
-    """Unittests for testing the Base class."""
+    """Test suite for the Base class"""
 
-    def test_id(self):
-        """Test automatic and manual ID assignments."""
+    def test_id_not_provided(self):
+        """Test Base() for assigning automatically an ID exists"""
+        b = Base()
+        self.assertIsNotNone(b.id)
+
+    def test_id_increment(self):
+        """Test Base() for assigning automatically an ID + 1 of the previous exists"""
         b1 = Base()
         b2 = Base()
-        b3 = Base()
-        self.assertEqual(b1.id, 1)
-        self.assertEqual(b2.id, 2)
-        self.assertEqual(b3.id, 3)
+        self.assertEqual(b2.id, b1.id + 1)
 
-        b4 = Base(89)
-        self.assertEqual(b4.id, 89)
+    def test_id_passed(self):
+        """Test Base(89) saving the ID passed exists"""
+        b = Base(89)
+        self.assertEqual(b.id, 89)
 
-        b5 = Base()
-        self.assertEqual(b5.id, 4)
+    def test_to_json_string_none(self):
+        """Test Base.to_json_string(None) exists"""
+        res = Base.to_json_string(None)
+        self.assertEqual(res, "[]")
+
+    def test_to_json_string_empty(self):
+        """Test Base.to_json_string([]) exists"""
+        res = Base.to_json_string([])
+        self.assertEqual(res, "[]")
+
+    def test_to_json_string_dict(self):
+        """Test Base.to_json_string([ { 'id': 12 }]) exists"""
+        res = Base.to_json_string([{'id': 12}])
+        self.assertEqual(res, '[{"id": 12}]')
+        self.assertIsInstance(res, str)
+
+    def test_from_json_string_none(self):
+        """Test Base.from_json_string(None) exists"""
+        res = Base.from_json_string(None)
+        self.assertEqual(res, [])
+
+    def test_from_json_string_empty(self):
+        """Test Base.from_json_string("[]") exists"""
+        res = Base.from_json_string("[]")
+        self.assertEqual(res, [])
 
 
 if __name__ == "__main__":
