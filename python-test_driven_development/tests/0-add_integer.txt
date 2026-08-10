@@ -47,7 +47,7 @@ Checking TypeErrors for invalid 'b':
 Checking float overflow and NaN handling:
     >>> add_integer(float('inf'), 1)
     Traceback (most recent call last):
-    OverflowError: int too large to convert to float
+    OverflowError: cannot convert float infinity to integer
 
     >>> add_integer(1, float('nan'))
     Traceback (most recent call last):
