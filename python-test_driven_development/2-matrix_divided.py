@@ -14,11 +14,13 @@ def matrix_divided(matrix, div):
 
     Raises:
         TypeError: If matrix is not a matrix of integers/floats,
-                   if rows are of different sizes, or if div is not a number.
+                   if rows are empty, if rows are of different sizes,
+                   or if div is not a number.
         ZeroDivisionError: If div is equal to 0.
     """
     if (not isinstance(matrix, list) or matrix == [] or
             not all(isinstance(row, list) for row in matrix) or
+            not all(len(row) > 0 for row in matrix) or
             not all(all(isinstance(ele, (int, float)) for ele in row)
                     for row in matrix)):
         raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
