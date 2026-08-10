@@ -3,7 +3,7 @@
 
 
 def text_indentation(text):
-    """Prints a text with 2 new lines after each of these characters: ., ? and :.
+    """Prints a text with 2 new lines after each of these: ., ? and :.
 
     Args:
         text (str): The text to print.
@@ -14,16 +14,16 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    i = 0
-    while i < len(text) and text[i] == ' ':
-        i += 1
+    count = 0
+    while count < len(text) and text[count] == ' ':
+        count += 1
 
-    while i < len(text):
-        print(text[i], end="")
-        if text[i] in ".?:":
+    while count < len(text):
+        print(text[count], end="")
+        if text[count] in ".?:":
             print("\n")
-            i += 1
-            while i < len(text) and text[i] == ' ':
-                i += 1
+            count += 1
+            while count < len(text) and text[count] == ' ':
+                count += 1
             continue
-        i += 1
+        count += 1
