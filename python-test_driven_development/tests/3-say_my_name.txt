@@ -1,0 +1,41 @@
+========================
+How to use 3-say_my_name.py
+========================
+
+Using ``say_my_name``
+---------------------
+
+Importing the function:
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Checking standard full name:
+    >>> say_my_name("John", "Smith")
+    My name is John Smith
+
+Checking with only first name (last_name defaults to empty):
+    >>> say_my_name("Bob")
+    My name is Bob 
+
+Checking with multiple names:
+    >>> say_my_name("Walter", "White")
+    My name is Walter White
+
+Checking TypeError when first_name is not a string:
+    >>> say_my_name(12, "White")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+Checking TypeError when last_name is not a string:
+    >>> say_my_name("John", 12)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+Checking TypeError when both arguments are not strings:
+    >>> say_my_name(12, 34)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+Checking TypeError when first_name is None:
+    >>> say_my_name(None)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
