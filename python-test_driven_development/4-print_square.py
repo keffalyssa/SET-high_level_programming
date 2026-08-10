@@ -2,7 +2,7 @@
 """Defines a square-printing function."""
 
 
-def print_square(size):
+def print_square(size=None):
     """Prints a square with the character #.
 
     Args:
@@ -12,7 +12,10 @@ def print_square(size):
         TypeError: If size is not an integer.
         ValueError: If size is less than 0.
     """
-    if not isinstance(size, int) or (isinstance(size, float) and size < 0):
+    if size is None:
+        raise TypeError("print_square() missing 1 required positional argument: 'size'")
+
+    if not isinstance(size, int) or isinstance(size, bool):
         raise TypeError("size must be an integer")
 
     if size < 0:
