@@ -11,11 +11,6 @@ def matrix_mul(m_a, m_b):
 
     Returns:
         list of lists: The product of m_a and m_b.
-
-    Raises:
-        TypeError: If m_a or m_b is not a list, not a list of lists,
-                   contains non-int/float elements, or rows are not same size.
-        ValueError: If m_a or m_b is empty, or can't be multiplied.
     """
     if not isinstance(m_a, list):
         raise TypeError("m_a must be a list")
