@@ -1,0 +1,47 @@
+========================
+How to use 2-matrix_divided.py
+========================
+
+Using ``matrix_divided``
+-------------------------
+
+Importing the function:
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+Checking standard division:
+    >>> matrix = [[1, 2, 3], [4, 5, 6]]
+    >>> matrix_divided(matrix, 3)
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+Checking that original matrix remains unchanged:
+    >>> matrix
+    [[1, 2, 3], [4, 5, 6]]
+
+Checking with floats and negative numbers:
+    >>> matrix_divided([[1.5, 2.5], [3.5, 4.5]], 2)
+    [[0.75, 1.25], [1.75, 2.25]]
+
+Checking TypeError for invalid matrix type (string):
+    >>> matrix_divided("not a matrix", 3)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Checking TypeError for non-number elements in matrix:
+    >>> matrix_divided([[1, 2], [3, "4"]], 2)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Checking TypeError for rows of different sizes:
+    >>> matrix_divided([[1, 2, 3], [4, 5]], 2)
+    Traceback (most recent call last):
+    TypeError: Each row of the matrix must have the same size
+
+Checking TypeError for invalid div type (string):
+    >>> matrix_divided([[1, 2], [3, 4]], "2")
+    Traceback (most recent call last):
+    TypeError: div must be a number
+
+Checking ZeroDivisionError when div is 0:
+    >>> matrix_divided([[1, 2], [3, 4]], 0)
+    Traceback (most recent call last):
+    ZeroDivisionError: division by zero
