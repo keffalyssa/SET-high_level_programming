@@ -2,7 +2,7 @@
 """Defines a matrix division function."""
 
 
-def matrix_divided(matrix, div):
+def matrix_divided(matrix=None, div=None):
     """Divides all elements of a matrix by div.
 
     Args:
@@ -18,6 +18,15 @@ def matrix_divided(matrix, div):
                    or if div is not a number.
         ZeroDivisionError: If div is equal to 0.
     """
+    if matrix is None:
+        raise TypeError(
+            "matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'"
+        )
+    if div is None:
+        raise TypeError(
+            "matrix_divided() missing 1 required positional argument: 'div'"
+        )
+
     if (not isinstance(matrix, list) or matrix == [] or
             not all(isinstance(row, list) for row in matrix) or
             not all(len(row) > 0 for row in matrix) or
@@ -38,4 +47,4 @@ def matrix_divided(matrix, div):
     if div == 0:
         raise ZeroDivisionError("division by zero")
 
-    return [[round(ele / div, 2) for ele in row] for row in matrix]
+    return [[0.0 if div == float('inf') or div == float('-inf') else round(ele / div, 2) for ele in row] for row in matrix]
