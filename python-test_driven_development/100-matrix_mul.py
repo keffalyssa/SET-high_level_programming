@@ -2,7 +2,7 @@
 """Defines a matrix multiplication function."""
 
 
-def matrix_mul(m_a=None, m_b=None):
+def matrix_mul(m_a, m_b):
     """Multiplies two matrices.
 
     Args:
@@ -12,11 +12,6 @@ def matrix_mul(m_a=None, m_b=None):
     Returns:
         list of lists: The product of m_a and m_b.
     """
-    if m_a is None:
-        raise TypeError("matrix_mul() missing 1 required positional argument: 'm_a'")
-    if m_b is None:
-        raise TypeError("matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'")
-
     if not isinstance(m_a, list):
         raise TypeError("m_a must be a list")
     if not all(isinstance(row, list) for row in m_a):
