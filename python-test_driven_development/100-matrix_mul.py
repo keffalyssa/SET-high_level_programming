@@ -36,14 +36,15 @@ def matrix_mul(m_a, m_b):
         for ele in row:
             if not isinstance(ele, (int, float)):
                 raise TypeError("m_a should contain only integers or floats")
+
     for row in m_b:
         for ele in row:
             if not isinstance(ele, (int, float)):
                 raise TypeError("m_b should contain only integers or floats")
 
-    row_len = len(m_a[0])
+    row_len_a = len(m_a[0])
     for row in m_a:
-        if len(row) != row_len:
+        if len(row) != row_len_a:
             raise TypeError("each row of m_a must be of the same size")
 
     row_len_b = len(m_b[0])
