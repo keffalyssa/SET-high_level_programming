@@ -1,0 +1,35 @@
+========================
+How to use 5-text_indentation.py
+========================
+
+Using ``text_indentation``
+---------------------
+
+Importing the function:
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Checking standard text with periods, question marks, and colons:
+    >>> text_indentation("Holberton. School? Python: It's great.")
+    Holberton.
+    <BLANKLINE>
+    School?
+    <BLANKLINE>
+    Python:
+    <BLANKLINE>
+    It's great.
+
+Checking text with leading/trailing spaces:
+    >>> text_indentation("   Hello world. How are you?   ")
+    Hello world.
+    <BLANKLINE>
+    How are you?
+
+Checking TypeError when text is not a string (integer):
+    >>> text_indentation(123)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+Checking TypeError when text is None:
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    TypeError: text must be a string
