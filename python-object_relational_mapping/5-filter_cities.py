@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 """
 Script that takes in the name of a state as an argument and lists all
-cities of that state, using the database hbtn_0e_4_usa, safe from SQL injection.
-Takes 4 arguments: mysql username, mysql password, database name, and state name.
+cities of that state, using the database hbtn_0e_4_usa,
+safe from SQL injection.
+Takes 4 arguments: mysql username, mysql password,
+database name, and state name.
 """
 
 import sys
