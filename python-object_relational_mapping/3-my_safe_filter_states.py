@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
 Script that takes in an argument and displays all values in the states
-table of hbtn_0e_0_usa where name matches the argument, safe from SQL injection.
+table of hbtn_0e_0_usa where name matches the argument,
+safe from SQL injection.
 Takes 4 arguments: mysql username, mysql password, database name,
 and state name searched.
 """
