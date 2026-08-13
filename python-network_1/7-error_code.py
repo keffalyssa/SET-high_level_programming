@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
 Module 7-error_code
-Takes in a URL, sends a request to the URL and displays the body of the response.
+Takes in a URL, sends a request to the URL
+and displays the body of the response.
 Prints Error code if status code >= 400.
 """
 import sys
