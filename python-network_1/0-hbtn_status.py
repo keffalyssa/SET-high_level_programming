@@ -1,5 +1,10 @@
 #!/usr/bin/python3
+"""
+Module 0-hbtn_status
+Fetches https://alx-intranet.hbtn.io/status using urllib
+"""
 import urllib.request
+
 
 if __name__ == '__main__':
     url = 'https://alx-intranet.hbtn.io/status'
